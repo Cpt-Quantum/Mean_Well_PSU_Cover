@@ -1,6 +1,5 @@
 include <definitions.scad>
 
-
 /* Exposed part of the PSU */
 module exposed_psu(){
 	difference(){
@@ -22,3 +21,12 @@ module exposed_psu(){
 	}
 }
 /* End of exposed part of PSU */
+
+/* Base of PSU cover that is printed separately */
+module cover_base(){
+	cube([psu_x, cover_extra_y, empty_base_wall_thick/2]);
+	translate([empty_wall_thick/2, 0, empty_base_wall_thick/2]){
+        	cube([psu_x - empty_wall_thick, cover_extra_y, empty_base_wall_thick/2]);
+	}
+}
+/* End of PSU cover base */
